@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  root to: 'home#index'
-
   ActiveAdmin.routes(self)
 
   namespace :api, { format: 'json' } do
@@ -8,4 +6,7 @@ Rails.application.routes.draw do
       resources :employees, only: [:index, :show, :create, :update, :destroy]
     end
   end
+
+  root to: 'home#index'
+  match '*path' => 'home#index', via: [:get]
 end

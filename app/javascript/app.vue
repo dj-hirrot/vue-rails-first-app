@@ -14,6 +14,8 @@
   import EmployeeEditPage from 'EmployeeEditPage.vue'
 
   const router = new VueRouter({
+    mode: 'history',
+    hash: false,
     routes: [
       {
         path: '/',
@@ -30,6 +32,10 @@
         path: '/employees/:id(\\d+)/edit',
         name: 'EmployeeEditPage',
         component: EmployeeEditPage
+      },
+      {
+        path: '*',
+        redirect: '/'
       }
     ]
   })
